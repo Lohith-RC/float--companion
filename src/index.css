@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ==============================================================================
+   AVANT-GARDE DESIGN SYSTEM: KINETIC GLASS & DOPPELRAND ARCHITECTURE
+   ============================================================================== */
+
+/* Outer machined shell with ambient depth */
+.doppelrand-shell {
+  background: rgba(10, 15, 29, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  padding: 6px;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+}
+
+/* Inner optical core with obsidian gradient */
+.doppelrand-core {
+  background: linear-gradient(180deg, rgba(13, 19, 36, 0.95) 0%, rgba(6, 9, 18, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: calc(28px - 6px);
+  box-shadow: 
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* The Machined Orb Lens */
+.lens-outer-bezel {
+  background: radial-gradient(circle at 35% 35%, rgba(56, 189, 248, 0.25), rgba(15, 23, 42, 0.95));
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 
+    0 12px 30px -5px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(56, 189, 248, 0.35),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -1.5px 3px rgba(0, 0, 0, 0.7);
+  border-radius: 9999px;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.lens-outer-bezel:hover {
+  border-color: rgba(56, 189, 248, 0.85);
+  box-shadow: 
+    0 18px 45px -5px rgba(0, 0, 0, 0.8),
+    0 0 55px rgba(56, 189, 248, 0.55),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* Kinetic rotating gradient sheen */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes sonar-wave {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.animate-sonar {
+  animation: sonar-wave 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Button-in-Button interactive capsule */
+.btn-pill-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.btn-pill-action:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-pill-action:active {
+  transform: scale(0.97);
+}
+
+/* Drag & No-Drag handles for Electron */
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Tabular Monospace font */
+.font-tabular {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom ultra-thin scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hide scrollbar for clean chip strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================================
+   MICRO-ANIMATION KEYFRAMES
+   ============================================================================ */
+
+/* Toast notification slide-up entrance */
+@keyframes slide-up {
+  0% { transform: translateY(16px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+/* Subtle fade-in for attachment chips and injected elements */
+@keyframes fade-in {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out both;
+}
+
+/* Extended scale utility for orb hover micro-interaction */
+.group-hover\:scale-115:is(:where(.group):hover *) {
+  transform: scale(1.15);
+}
+.scale-115 {
+  transform: scale(1.15);
+}

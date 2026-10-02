@@ -1,0 +1,68 @@
+{
+  "name": "float-companion",
+  "version": "1.0.0",
+  "description": "Autonomous Floating AI Desktop Companion with Multi-Model Intelligence, Vision, Voice, and Native OS Automation",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "author": "Lohith-RC",
+  "license": "MIT",
+  "homepage": "https://github.com/Lohith-RC/float-companion#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lohith-RC/float-companion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lohith-RC/float-companion/issues"
+  },
+  "keywords": [
+    "ai",
+    "desktop-companion",
+    "electron",
+    "react-19",
+    "groq",
+    "llama-3-3",
+    "google-gemini",
+    "multimodal",
+    "voice-dictation",
+    "focus-guardian",
+    "pomodoro",
+    "dpapi-security",
+    "zero-token",
+    "glassmorphism"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail \"npm run dev:vite\" \"npm run dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://127.0.0.1:5173 && electron .",
+    "build": "tsc && vite build",
+    "build:web": "vite build && node -e \"const fs=require('fs'); fs.cpSync('dist', 'dist-web', {recursive:true}); fs.copyFileSync('website/index.html', 'dist-web/index.html'); fs.copyFileSync('dist/index.html', 'dist-web/app.html');\"",
+    "pack:win": "npm run build && electron-builder --win",
+    "pack:mac": "npm run build && electron-builder --mac",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.7",
+    "idb-keyval": "^6.2.1",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "wait-on": "^8.0.2"
+  }
+}
